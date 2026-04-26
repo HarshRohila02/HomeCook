@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#FAFAFA">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tell us about your taste! 😋"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This helps us recommend the best home cooks for you."
+        android:textSize="14sp"
+        android:textColor="#777777"
+        android:layout_marginBottom="32dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Food Preference"
+        android:textStyle="bold"
+        android:layout_marginBottom="12dp"/>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:layout_marginBottom="24dp">
+
+        <LinearLayout
+            android:id="@+id/layoutChips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnVeg"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Veg"
+                android:textAllCaps="false"
+                android:background="@drawable/bg_chip_unselected"
+                android:layout_marginEnd="8dp"/>
+
+            <Button
+                android:id="@+id/btnNonVeg"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Non-Veg"
+                android:textAllCaps="false"
+                android:background="@drawable/bg_chip_unselected"
+                android:layout_marginEnd="8dp"/>
+
+            <Button
+                android:id="@+id/btnVegetarian"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Vegetarian"
+                android:textAllCaps="false"
+                android:background="@drawable/bg_chip_unselected"
+                android:layout_marginEnd="8dp"/>
+
+            <Button
+                android:id="@+id/btnVegan"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Vegan"
+                android:textAllCaps="false"
+                android:background="@drawable/bg_chip_unselected"/>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Allergies (if any)"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/etAllergies"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="e.g. Peanuts, Gluten"
+        android:background="@drawable/edittext_rounded"
+        android:padding="12dp"
+        android:layout_marginBottom="24dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Health Goals"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/etHealthGoals"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="e.g. Weight loss, High protein"
+        android:background="@drawable/edittext_rounded"
+        android:padding="12dp"
+        android:layout_marginBottom="32dp"/>
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="Save &amp; Continue"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/btn_rounded"
+        android:textAllCaps="false"
+        android:layout_marginBottom="12dp"/>
+
+    <TextView
+        android:id="@+id/tvSkip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Skip for now"
+        android:layout_gravity="center"
+        android:textColor="#777777"
+        android:padding="8dp"/>
+
+</LinearLayout>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomNavigation"
+        android:orientation="vertical">
+
+        <!-- Toolbar / Header -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#FFFFFF"
+            android:elevation="4dp"
+            android:paddingHorizontal="16dp">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:src="@android:drawable/ic_menu_revert"
+                app:tint="#333333" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Nearby Home Cooks"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#333333" />
+        </RelativeLayout>
+
+        <!-- Search Bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="16dp"
+            android:background="@drawable/bg_search"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@android:drawable/ic_menu_search" />
+
+            <EditText
+                android:id="@+id/etSearchCooks"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="12dp"
+                android:background="@android:color/transparent"
+                android:hint="Search by name or cuisine"
+                android:inputType="text"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Filter Chips -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:paddingHorizontal="16dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/filterAll"
+                    style="@style/CategoryChip"
+                    android:text="All" />
+
+                <Button
+                    android:id="@+id/filterNorth"
+                    style="@style/CategoryChip"
+                    android:text="North Indian" />
+
+                <Button
+                    android:id="@+id/filterSouth"
+                    style="@style/CategoryChip"
+                    android:text="South Indian" />
+
+                <Button
+                    android:id="@+id/filterHealthy"
+                    style="@style/CategoryChip"
+                    android:text="Healthy" />
+
+                <Button
+                    android:id="@+id/filterItalian"
+                    style="@style/CategoryChip"
+                    android:text="Italian" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- Recycler View -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCookList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="16dp"
+            android:clipToPadding="false"/>
+    </LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+        android:elevation="8dp"
+        app:menu="@menu/bottom_nav_menu"
+        app:labelVisibilityMode="labeled" />
+
+</RelativeLayout>

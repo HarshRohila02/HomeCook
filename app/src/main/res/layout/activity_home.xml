@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFA">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomNavigation">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Top Header -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:id="@+id/tvGreeting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ready To Munch! 🍽️"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="#333333" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/ivNotification"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@android:drawable/ic_popup_reminder"
+                        android:contentDescription="Notifications"
+                        app:tint="#333333" />
+
+                    <ImageView
+                        android:id="@+id/ivProfile"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_marginStart="16dp"
+                        android:src="@android:drawable/ic_menu_myplaces"
+                        android:contentDescription="Profile"
+                        app:tint="#333333" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!-- Search Bar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/bg_search"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@android:drawable/ic_menu_search" />
+
+                <EditText
+                    android:id="@+id/etHomeSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:hint="Search for dishes or cooks"
+                    android:textSize="14sp"
+                    android:layout_marginStart="12dp"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:inputType="none" />
+            </LinearLayout>
+
+            <!-- Categories -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Categories"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginTop="24dp" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:layout_marginTop="12dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- Simple hardcoded categories -->
+                    <TextView style="@style/CategoryChip" android:text="North Indian" />
+                    <TextView style="@style/CategoryChip" android:text="South Indian" />
+                    <TextView style="@style/CategoryChip" android:text="Chinese" />
+                    <TextView style="@style/CategoryChip" android:text="Healthy" />
+                    <TextView style="@style/CategoryChip" android:text="More" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- Popular Dishes -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Popular Dishes"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginTop="24dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPopularDishes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal" />
+
+            <!-- Nearby Cooks -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nearby Home Cooks"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginTop="24dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvNearbyCooks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:nestedScrollingEnabled="false" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+        android:elevation="8dp"
+        app:menu="@menu/bottom_nav_menu"
+        app:labelVisibilityMode="labeled" />
+
+</RelativeLayout>

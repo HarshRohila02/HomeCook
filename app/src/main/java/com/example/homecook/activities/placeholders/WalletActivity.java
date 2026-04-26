@@ -1,0 +1,13 @@
+package com.example.homecook.activities.placeholders;
+
+import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
+import com.example.homecook.R;
+
+public class WalletActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_placeholder);
+    }
+}

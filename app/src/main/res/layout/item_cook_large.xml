@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:gravity="center_vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivCookLarge"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_launcher_background"
+            app:civ_border_width="1dp"
+            app:civ_border_color="#EEEEEE"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="16dp">
+
+            <TextView
+                android:id="@+id/tvCookNameLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Priya Sharma"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#333333"/>
+
+            <TextView
+                android:id="@+id/tvCuisineLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="North Indian Cuisine"
+                android:textSize="14sp"
+                android:textColor="#777777"
+                android:layout_marginTop="2dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvRatingLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="★ 4.9"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="#FF9800"/>
+
+                <TextView
+                    android:id="@+id/tvReviewsLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(120 reviews)"
+                    android:textSize="12sp"
+                    android:textColor="#999999"
+                    android:layout_marginStart="4dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" • "
+                    android:textColor="#999999"/>
+
+                <TextView
+                    android:id="@+id/tvDistanceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1.2 km"
+                    android:textSize="12sp"
+                    android:textColor="#555555"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvStatusLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Available Now"
+                android:textSize="12sp"
+                android:textColor="#4CAF50"
+                android:textStyle="bold"
+                android:layout_marginTop="4dp"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@android:drawable/ic_media_play"
+            android:rotation="0"
+            app:tint="#CCCCCC" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
