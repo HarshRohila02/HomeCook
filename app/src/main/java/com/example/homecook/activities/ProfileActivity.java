@@ -132,6 +132,14 @@ public class ProfileActivity extends AppCompatActivity {
                     if (tvName != null) tvName.setText(name != null ? name : "No Name");
                     if (tvEmail != null) tvEmail.setText(email != null ? email : "No Email");
                     if (tvPhone != null) tvPhone.setText(phone != null ? phone : "No Phone");
+
+                    // Load profile photo
+                    if (ivProfilePic != null) {
+                        int profileResId = getResources().getIdentifier("profile", "drawable", getPackageName());
+                        if (profileResId != 0) {
+                            ivProfilePic.setImageResource(profileResId);
+                        }
+                    }
                 } else {
                     Toast.makeText(ProfileActivity.this, "User profile not found", Toast.LENGTH_SHORT).show();
                 }

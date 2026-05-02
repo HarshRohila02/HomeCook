@@ -1,6 +1,7 @@
 package com.example.homecook.adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,14 +52,17 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         holder.tvQty.setText(String.valueOf(item.getQuantity()));
 
         String imageName = item.getImageName();
+        Log.d("CartAdapter", "Cart item '" + item.getName() + "' imageName='" + imageName + "'");
         if (imageName != null && !imageName.isEmpty()) {
             int resId = context.getResources().getIdentifier(imageName, "drawable", context.getPackageName());
             if (resId != 0) {
                 Glide.with(context).load(resId).placeholder(R.drawable.ic_launcher_background).into(holder.ivItem);
             } else {
+                Log.w("CartAdapter", "Image NOT found in drawable for '" + item.getName() + "', imageName='" + imageName + "'");
                 holder.ivItem.setImageResource(R.drawable.ic_launcher_background);
             }
         } else {
+            Log.w("CartAdapter", "No imageName for cart item: '" + item.getName() + "'");
             holder.ivItem.setImageResource(R.drawable.ic_launcher_background);
         }
 

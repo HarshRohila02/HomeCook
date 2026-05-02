@@ -127,6 +127,27 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.CartU
                             if (item != null) {
                                 cartList.add(item);
                                 subtotal += (item.getPrice() * item.getQuantity());
+
+                                // If imageName is missing, look it up from the dishes collection
+                                if (item.getImageName() == null || item.getImageName().isEmpty()) {
+                                    String dishId = item.getDishId();
+                                    if (dishId != null) {
+                                        db.collection("dishes").document(dishId).get()
+                                                .addOnSuccessListener(dishDoc -> {
+                                                    if (dishDoc.exists()) {
+                                                        String imgName = dishDoc.getString("imageName");
+                                                        if (imgName != null && !imgName.isEmpty()) {
+                                                            item.setImageName(imgName);
+                                                            // Also update the cart document so it has the image next time
+                                                            db.collection("cart").document(userId)
+                                                                    .collection("items").document(dishId)
+                                                                    .update("imageName", imgName);
+                                                            adapter.notifyDataSetChanged();
+                                                        }
+                                                    }
+                                                });
+                                    }
+                                }
                             }
                         }
                         updateUI();

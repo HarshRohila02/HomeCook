@@ -13,11 +13,11 @@
         android:padding="24dp">
 
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:layout_marginTop="40dp"
-            android:src="@android:drawable/checkbox_on_background"
-            app:tint="#4CAF50" />
+            android:src="@drawable/payment_successful"
+            android:scaleType="centerCrop" />
 
         <TextView
             android:layout_width="wrap_content"
