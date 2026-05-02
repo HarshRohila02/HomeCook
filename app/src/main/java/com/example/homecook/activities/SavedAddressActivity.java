@@ -90,6 +90,11 @@ public class SavedAddressActivity extends AppCompatActivity implements AddressAd
             return;
         }
 
+        if (userId == null) {
+            Toast.makeText(this, "Please login first", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         int selectedId = rgLabel.getCheckedRadioButtonId();
         RadioButton rb = findViewById(selectedId);
         String label = rb.getText().toString();
@@ -97,19 +102,30 @@ public class SavedAddressActivity extends AppCompatActivity implements AddressAd
         String addressId = UUID.randomUUID().toString();
         boolean isDefault = addressList.isEmpty(); // Make first address default
 
-        Address newAddress = new Address(addressId, label, fullAddress, phone, isDefault);
+        // Use a HashMap instead of the Address object to avoid Firestore serialization issues
+        java.util.Map<String, Object> addressData = new java.util.HashMap<>();
+        addressData.put("addressId", addressId);
+        addressData.put("label", label);
+        addressData.put("fullAddress", fullAddress);
+        addressData.put("phone", phone);
+        addressData.put("isDefault", isDefault);
 
         db.collection("users").document(userId).collection("addresses")
                 .document(addressId)
-                .set(newAddress)
+                .set(addressData)
                 .addOnSuccessListener(aVoid -> {
                     Toast.makeText(this, "Address saved", Toast.LENGTH_SHORT).show();
                     if (isDefault) {
+                        Address newAddress = new Address(addressId, label, fullAddress, phone, isDefault);
                         updateDefaultInProfile(newAddress);
                     }
                     etFullAddress.setText("");
                     etPhone.setText("");
                     loadAddresses();
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(this, "Failed to save: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                    android.util.Log.e("SavedAddress", "Failed to save address", e);
                 });
     }
 
