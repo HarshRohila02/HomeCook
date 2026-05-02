@@ -104,15 +104,11 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.CartU
 
         if (btnCheckout != null) {
             btnCheckout.setOnClickListener(v -> {
-                try {
-                    Intent intent = new Intent(this, Class.forName("com.example.homecook.activities.OrderCheckoutActivity"));
-                    intent.putExtra("subtotal", subtotal);
-                    intent.putExtra("deliveryFee", (double) deliveryFee);
-                    intent.putExtra("totalAmount", subtotal + deliveryFee);
-                    startActivity(intent);
-                } catch (ClassNotFoundException e) {
-                    Toast.makeText(this, "Checkout process is currently unavailable.", Toast.LENGTH_SHORT).show();
-                }
+                Intent intent = new Intent(this, OrderCheckoutActivity.class);
+                intent.putExtra("subtotal", subtotal);
+                intent.putExtra("deliveryFee", (double) deliveryFee);
+                intent.putExtra("totalAmount", subtotal + deliveryFee);
+                startActivity(intent);
             });
         }
     }

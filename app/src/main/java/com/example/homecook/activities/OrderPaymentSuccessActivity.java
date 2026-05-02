@@ -68,11 +68,9 @@ public class OrderPaymentSuccessActivity extends AppCompatActivity {
         });
 
         btnTrack.setOnClickListener(v -> {
-            // OrderTrackingActivity will be created in a later phase
-            Toast.makeText(this, "Order Tracking coming soon!", Toast.LENGTH_SHORT).show();
-            // Intent intent = new Intent(this, OrderTrackingActivity.class);
-            // intent.putExtra("orderId", orderId);
-            // startActivity(intent);
+            Intent intent = new Intent(this, OrderTrackingActivity.class);
+            intent.putExtra("orderId", orderId);
+            startActivity(intent);
         });
     }
 

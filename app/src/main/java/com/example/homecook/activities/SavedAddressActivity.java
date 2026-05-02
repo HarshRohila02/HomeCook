@@ -133,14 +133,14 @@ public class SavedAddressActivity extends AppCompatActivity implements AddressAd
         for (Address a : addressList) {
             if (a.isDefault()) {
                 db.collection("users").document(userId).collection("addresses")
-                        .document(a.getAddressId()).update("default", false);
+                        .document(a.getAddressId()).update("isDefault", false);
             }
         }
 
         // 2. Set new default
         db.collection("users").document(userId).collection("addresses")
                 .document(address.getAddressId())
-                .update("default", true)
+                .update("isDefault", true)
                 .addOnSuccessListener(aVoid -> {
                     updateDefaultInProfile(address);
                     loadAddresses();
@@ -148,8 +148,11 @@ public class SavedAddressActivity extends AppCompatActivity implements AddressAd
     }
 
     private void updateDefaultInProfile(Address address) {
+        java.util.Map<String, Object> updates = new java.util.HashMap<>();
+        updates.put("defaultAddress", address.getFullAddress());
+        updates.put("defaultAddressLabel", address.getLabel());
         db.collection("users").document(userId)
-                .update("defaultAddress", address.getFullAddress())
+                .update(updates)
                 .addOnSuccessListener(aVoid -> {
                     // Default address updated in main profile
                 });

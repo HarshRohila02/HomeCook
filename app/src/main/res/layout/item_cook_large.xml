@@ -3,25 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="16dp"
-    android:layout_marginVertical="8dp"
+    android:layout_marginHorizontal="12dp"
+    android:layout_marginVertical="6dp"
     app:cardCornerRadius="16dp"
-    app:cardElevation="4dp">
+    app:cardElevation="3dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="12dp"
+        android:padding="14dp"
         android:gravity="center_vertical">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/ivCookLarge"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
             android:src="@drawable/ic_launcher_background"
-            app:civ_border_width="1dp"
-            app:civ_border_color="#EEEEEE"/>
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/surface_variant" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -35,57 +35,59 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Priya Sharma"
-                android:textSize="18sp"
+                android:textSize="17sp"
                 android:textStyle="bold"
-                android:textColor="#333333"/>
+                android:textColor="@color/text_primary"
+                android:fontFamily="sans-serif-medium" />
 
             <TextView
                 android:id="@+id/tvCuisineLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="North Indian Cuisine"
-                android:textSize="14sp"
-                android:textColor="#777777"
-                android:layout_marginTop="2dp"/>
+                android:textSize="13sp"
+                android:textColor="@color/text_secondary"
+                android:layout_marginTop="2dp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="6dp"
                 android:gravity="center_vertical">
 
                 <TextView
                     android:id="@+id/tvRatingLarge"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/bg_rating_badge"
                     android:text="★ 4.9"
-                    android:textSize="13sp"
+                    android:textSize="11sp"
                     android:textStyle="bold"
-                    android:textColor="#FF9800"/>
+                    android:textColor="@color/white" />
 
                 <TextView
                     android:id="@+id/tvReviewsLarge"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="(120 reviews)"
-                    android:textSize="12sp"
-                    android:textColor="#999999"
-                    android:layout_marginStart="4dp"/>
+                    android:textSize="11sp"
+                    android:textColor="@color/text_tertiary"
+                    android:layout_marginStart="8dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=" • "
-                    android:textColor="#999999"/>
+                    android:textColor="@color/text_tertiary" />
 
                 <TextView
                     android:id="@+id/tvDistanceLarge"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1.2 km"
-                    android:textSize="12sp"
-                    android:textColor="#555555"/>
+                    android:textSize="11sp"
+                    android:textColor="@color/text_secondary" />
             </LinearLayout>
 
             <TextView
@@ -94,18 +96,18 @@
                 android:layout_height="wrap_content"
                 android:text="Available Now"
                 android:textSize="12sp"
-                android:textColor="#4CAF50"
+                android:textColor="@color/success"
                 android:textStyle="bold"
-                android:layout_marginTop="4dp"/>
+                android:layout_marginTop="4dp" />
 
         </LinearLayout>
 
         <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:src="@android:drawable/ic_media_play"
             android:rotation="0"
-            app:tint="#CCCCCC" />
+            app:tint="@color/text_tertiary" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

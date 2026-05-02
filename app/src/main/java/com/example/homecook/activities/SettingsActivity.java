@@ -19,7 +19,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     private RelativeLayout rlLanguage;
     private TextView tvChangePassword, tvManagePreferences, tvCurrentLanguage;
-    private SwitchCompat switchNotifications, switchTheme;
+    private SwitchCompat switchNotifications;
     private Button btnSettingsLogout;
     private FirebaseAuth mAuth;
 
@@ -37,11 +37,14 @@ public class SettingsActivity extends AppCompatActivity {
         rlLanguage = findViewById(R.id.rlLanguage);
         tvCurrentLanguage = findViewById(R.id.tvCurrentLanguage);
         switchNotifications = findViewById(R.id.switchNotifications);
-        switchTheme = findViewById(R.id.switchTheme);
         btnSettingsLogout = findViewById(R.id.btnSettingsLogout);
 
         // Change Password
         tvChangePassword.setOnClickListener(v -> {
+            if (mAuth.getCurrentUser() == null) {
+                Toast.makeText(this, "Please login first", Toast.LENGTH_SHORT).show();
+                return;
+            }
             String email = mAuth.getCurrentUser().getEmail();
             if (email != null) {
                 mAuth.sendPasswordResetEmail(email)
@@ -71,12 +74,6 @@ public class SettingsActivity extends AppCompatActivity {
         switchNotifications.setOnCheckedChangeListener((buttonView, isChecked) -> {
             String status = isChecked ? "Enabled" : "Disabled";
             Toast.makeText(this, "Notifications " + status, Toast.LENGTH_SHORT).show();
-        });
-
-        // Theme Switch Placeholder
-        switchTheme.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            String theme = isChecked ? "Dark" : "Light";
-            Toast.makeText(this, theme + " mode selected (Placeholder)", Toast.LENGTH_SHORT).show();
         });
     }
 

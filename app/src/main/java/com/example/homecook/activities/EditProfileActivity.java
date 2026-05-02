@@ -33,6 +33,12 @@ public class EditProfileActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         userId = mAuth.getUid();
 
+        if (userId == null) {
+            Toast.makeText(this, "Session expired. Please login again.", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+
         // Initialize Views
         etName = findViewById(R.id.etEditName);
         etEmail = findViewById(R.id.etEditEmail);

@@ -50,9 +50,16 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         holder.tvPrice.setText("₹" + (int) item.getPrice());
         holder.tvQty.setText(String.valueOf(item.getQuantity()));
 
-        int resId = context.getResources().getIdentifier(item.getImageName(), "drawable", context.getPackageName());
-        if (resId != 0) {
-            Glide.with(context).load(resId).placeholder(R.drawable.ic_launcher_background).into(holder.ivItem);
+        String imageName = item.getImageName();
+        if (imageName != null && !imageName.isEmpty()) {
+            int resId = context.getResources().getIdentifier(imageName, "drawable", context.getPackageName());
+            if (resId != 0) {
+                Glide.with(context).load(resId).placeholder(R.drawable.ic_launcher_background).into(holder.ivItem);
+            } else {
+                holder.ivItem.setImageResource(R.drawable.ic_launcher_background);
+            }
+        } else {
+            holder.ivItem.setImageResource(R.drawable.ic_launcher_background);
         }
 
         holder.ivPlus.setOnClickListener(v -> updateQuantity(item, 1));
@@ -67,6 +74,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     }
 
     private void updateQuantity(CartItem item, int change) {
+        if (userId == null) return;
         int newQty = item.getQuantity() + change;
         db.collection("cart").document(userId).collection("items")
                 .document(item.getDishId())
@@ -79,6 +87,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     }
 
     private void deleteItem(CartItem item) {
+        if (userId == null) return;
         db.collection("cart").document(userId).collection("items")
                 .document(item.getDishId())
                 .delete()

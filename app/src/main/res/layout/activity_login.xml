@@ -2,77 +2,97 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/surface"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:padding="28dp">
+
+    <!-- Brand Mark -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🍳"
+        android:textSize="56sp"
+        android:layout_marginBottom="8dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Welcome Back!"
-        android:textColor="@color/black"
+        android:textColor="@color/text_primary"
         android:textSize="28sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="36dp"
         android:text="Login to continue"
-        android:textColor="@color/grey"
-        android:textSize="16sp" />
+        android:textColor="@color/text_tertiary"
+        android:textSize="15sp" />
 
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginBottom="16dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="14dp"
         android:background="@drawable/edittext_rounded"
-        android:hint="Email"
+        android:hint="Email address"
         android:inputType="textEmailAddress"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp" />
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:textSize="15sp"
+        android:textColorHint="@color/text_tertiary" />
 
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginBottom="8dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/edittext_rounded"
         android:hint="Password"
         android:inputType="textPassword"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp" />
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:textSize="15sp"
+        android:textColorHint="@color/text_tertiary" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="28dp"
         android:text="Forgot Password?"
-        android:textColor="@color/primary" />
+        android:textColor="@color/primary"
+        android:textSize="13sp"
+        android:fontFamily="sans-serif-medium" />
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:background="@drawable/btn_rounded"
+        android:layout_height="54dp"
+        android:background="@drawable/bg_button_primary"
         android:text="Login"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="18sp" />
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="28dp"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New here? " />
+            android:text="New here? "
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/tvSignUp"
@@ -80,7 +100,8 @@
             android:layout_height="wrap_content"
             android:text="Sign Up"
             android:textColor="@color/primary"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textSize="14sp" />
     </LinearLayout>
 
 </LinearLayout>

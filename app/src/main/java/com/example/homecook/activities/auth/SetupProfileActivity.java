@@ -32,6 +32,12 @@ public class SetupProfileActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         userId = FirebaseAuth.getInstance().getUid();
 
+        if (userId == null) {
+            Toast.makeText(this, "Session expired. Please login again.", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+
         btnVeg = findViewById(R.id.btnVeg);
         btnNonVeg = findViewById(R.id.btnNonVeg);
         btnVegetarian = findViewById(R.id.btnVegetarian);

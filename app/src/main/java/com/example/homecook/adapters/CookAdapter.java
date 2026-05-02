@@ -2,6 +2,7 @@ package com.example.homecook.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,10 +41,12 @@ public class CookAdapter extends RecyclerView.Adapter<CookAdapter.CookViewHolder
         holder.tvDistance.setText(cook.getDistance());
         holder.tvRating.setText("★ " + cook.getRating());
 
-        int resId = context.getResources().getIdentifier(cook.getImageName(), "drawable", context.getPackageName());
+        String imgName = cook.getImageName();
+        int resId = imgName != null ? context.getResources().getIdentifier(imgName, "drawable", context.getPackageName()) : 0;
         if (resId != 0) {
             Glide.with(context).load(resId).placeholder(R.drawable.ic_launcher_background).into(holder.ivCook);
         } else {
+            Log.w("CookAdapter", "Image NOT found for cook '" + cook.getName() + "', imageName='" + imgName + "'");
             holder.ivCook.setImageResource(R.drawable.ic_launcher_background);
         }
 

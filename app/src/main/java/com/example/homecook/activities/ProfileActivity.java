@@ -11,11 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.homecook.HomeActivity;
 import com.example.homecook.R;
 import com.example.homecook.activities.auth.LoginActivity;
-import com.example.homecook.activities.placeholders.SavedAddressActivity;
-import com.example.homecook.activities.placeholders.WalletActivity;
-import com.example.homecook.activities.placeholders.NotificationsActivity;
-import com.example.homecook.activities.placeholders.HelpSupportActivity;
-import com.example.homecook.activities.placeholders.SettingsActivity;
+// These now reference the real, fully-implemented activities (not placeholders)
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -26,7 +22,7 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView tvName, tvEmail, tvPhone;
     private ImageView ivProfilePic;
     private LinearLayout btnEditProfile, btnSavedAddress, btnOrders, btnSubscription, 
-            btnWallet, btnNotifications, btnHelpSupport, btnSettings, btnLogout;
+            btnNotifications, btnHelpSupport, btnSettings, btnLogout;
     private BottomNavigationView bottomNavigationView;
     
     private FirebaseAuth mAuth;
@@ -59,7 +55,6 @@ public class ProfileActivity extends AppCompatActivity {
         btnSavedAddress = findViewById(R.id.btnSavedAddress);
         btnOrders = findViewById(R.id.btnOrders);
         btnSubscription = findViewById(R.id.btnSubscription);
-        btnWallet = findViewById(R.id.btnWallet);
         btnNotifications = findViewById(R.id.btnNotifications);
         btnHelpSupport = findViewById(R.id.btnHelpSupport);
         btnSettings = findViewById(R.id.btnSettings);
@@ -72,8 +67,7 @@ public class ProfileActivity extends AppCompatActivity {
         btnEditProfile.setOnClickListener(v -> startActivity(new Intent(ProfileActivity.this, EditProfileActivity.class)));
         btnSavedAddress.setOnClickListener(v -> startActivity(new Intent(ProfileActivity.this, SavedAddressActivity.class)));
         btnOrders.setOnClickListener(v -> startActivity(new Intent(ProfileActivity.this, OrdersActivity.class)));
-        btnSubscription.setOnClickListener(v -> startActivity(new Intent(ProfileActivity.this, SubscriptionPlansActivity.class)));
-        btnWallet.setOnClickListener(v -> startActivity(new Intent(ProfileActivity.this, WalletActivity.class)));
+        btnSubscription.setOnClickListener(v -> startActivity(new Intent(ProfileActivity.this, MySubscriptionsActivity.class)));
         btnNotifications.setOnClickListener(v -> startActivity(new Intent(ProfileActivity.this, NotificationsActivity.class)));
         btnHelpSupport.setOnClickListener(v -> startActivity(new Intent(ProfileActivity.this, HelpSupportActivity.class)));
         btnSettings.setOnClickListener(v -> startActivity(new Intent(ProfileActivity.this, SettingsActivity.class)));
@@ -147,9 +141,4 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        finish();
-    }
 }

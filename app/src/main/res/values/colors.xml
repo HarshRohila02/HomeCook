@@ -1,12 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#FF9800</color>
-    <color name="primary_dark">#F57C00</color>
-    <color name="accent">#FFC107</color>
+    <!-- Primary Brand -->
+    <color name="primary">#E23744</color>
+    <color name="primary_dark">#C62828</color>
+    <color name="primary_light">#FF6F61</color>
+    <color name="accent">#FF9800</color>
+    <color name="accent_light">#FFB74D</color>
+
+    <!-- Surfaces -->
+    <color name="background">#F7F7F8</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_variant">#F2F3F5</color>
+
+    <!-- Text Hierarchy -->
+    <color name="text_primary">#1C1B1F</color>
+    <color name="text_secondary">#5F6368</color>
+    <color name="text_tertiary">#9AA0A6</color>
+    <color name="text_on_primary">#FFFFFF</color>
+
+    <!-- Semantic -->
+    <color name="success">#1B8A2F</color>
+    <color name="success_bg">#E8F5E9</color>
+    <color name="warning">#F9A825</color>
+    <color name="error">#D32F2F</color>
+    <color name="rating_star">#FFB300</color>
+
+    <!-- Structural -->
+    <color name="divider">#E8E8E8</color>
+    <color name="border">#E0E0E0</color>
+    <color name="ripple">#14000000</color>
+    <color name="shadow">#0A000000</color>
+
+    <!-- Gradients -->
+    <color name="orange_gradient_start">#FF6F61</color>
+    <color name="orange_gradient_end">#E23744</color>
+    <color name="header_gradient_start">#00000000</color>
+    <color name="header_gradient_end">#99000000</color>
+
+    <!-- Legacy compatibility -->
     <color name="white">#FFFFFF</color>
-    <color name="black">#212121</color>
-    <color name="grey">#757575</color>
-    <color name="light_grey">#F5F5F5</color>
-    <color name="orange_gradient_start">#FFB74D</color>
-    <color name="orange_gradient_end">#FF9800</color>
+    <color name="black">#1C1B1F</color>
+    <color name="grey">#5F6368</color>
+    <color name="light_grey">#F2F3F5</color>
+
+    <!-- Adaptive Icon -->
+    <color name="ic_launcher_background">#F5F5F5</color>
 </resources>

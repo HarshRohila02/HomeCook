@@ -1,5 +1,7 @@
 package com.example.homecook.models;
 
+import com.google.firebase.firestore.PropertyName;
+
 public class Address {
     private String addressId;
     private String label;
@@ -29,6 +31,9 @@ public class Address {
     public String getPhone() { return phone; }
     public void setPhone(String phone) { this.phone = phone; }
 
+    @PropertyName("isDefault")
     public boolean isDefault() { return isDefault; }
+
+    @PropertyName("isDefault")
     public void setDefault(boolean aDefault) { isDefault = aDefault; }
 }

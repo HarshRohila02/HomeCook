@@ -23,7 +23,8 @@ public class DishDetailActivity extends AppCompatActivity {
     
     private ImageView ivDishDetail, ivBack;
     private TextView tvName, tvPrice, tvCategory, tvMealType, tvDesc, tvIngredients, tvQuantity;
-    private Button btnMinus, btnPlus, btnAddToCart;
+    private TextView btnMinus, btnPlus;
+    private Button btnAddToCart;
     
     private int quantity = 1;
 
@@ -153,9 +154,4 @@ public class DishDetailActivity extends AppCompatActivity {
                 });
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        finish();
-    }
 }

@@ -80,6 +80,10 @@ public class OrdersActivity extends AppCompatActivity {
     private void loadOrders() {
         if (userId == null) return;
 
+        // NOTE: This query requires a Firestore composite index on:
+        //   Collection: orders | Fields: userId (Ascending), createdAt (Descending)
+        //   Create it in Firebase Console > Firestore > Indexes, or follow the link
+        //   in the error log when this query first runs.
         Query query = db.collection("orders")
                 .whereEqualTo("userId", userId)
                 .orderBy("createdAt", Query.Direction.DESCENDING);

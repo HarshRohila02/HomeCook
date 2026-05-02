@@ -35,6 +35,12 @@ public class OrderCheckoutActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         userId = FirebaseAuth.getInstance().getUid();
 
+        if (userId == null) {
+            Toast.makeText(this, "Please login to proceed", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+
         // Get data from intent
         subtotal = getIntent().getDoubleExtra("subtotal", 0);
         deliveryFee = getIntent().getDoubleExtra("deliveryFee", 40);
@@ -108,18 +114,13 @@ public class OrderCheckoutActivity extends AppCompatActivity {
         String deliveryType = ((RadioButton) findViewById(rgDeliveryType.getCheckedRadioButtonId())).getText().toString();
         String paymentMethod = ((RadioButton) findViewById(rgPayment.getCheckedRadioButtonId())).getText().toString();
 
-        // OrderPaymentSuccessActivity will be created in Phase 5C
-        try {
-            Intent intent = new Intent(this, Class.forName("com.example.homecook.activities.OrderPaymentSuccessActivity"));
-            intent.putExtra("subtotal", subtotal);
-            intent.putExtra("deliveryFee", deliveryFee);
-            intent.putExtra("totalAmount", totalAmount);
-            intent.putExtra("deliveryType", deliveryType);
-            intent.putExtra("address", userAddress);
-            intent.putExtra("paymentMethod", paymentMethod);
-            startActivity(intent);
-        } catch (ClassNotFoundException e) {
-            Toast.makeText(this, "Payment Success Activity not found.", Toast.LENGTH_SHORT).show();
-        }
+        Intent intent = new Intent(this, OrderPaymentSuccessActivity.class);
+        intent.putExtra("subtotal", subtotal);
+        intent.putExtra("deliveryFee", deliveryFee);
+        intent.putExtra("totalAmount", totalAmount);
+        intent.putExtra("deliveryType", deliveryType);
+        intent.putExtra("address", userAddress);
+        intent.putExtra("paymentMethod", paymentMethod);
+        startActivity(intent);
     }
 }

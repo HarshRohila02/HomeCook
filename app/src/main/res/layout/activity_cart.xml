@@ -3,46 +3,43 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8F8F8">
+    android:background="@color/background">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_above="@id/bottomNavigation"
+        android:layout_alignParentTop="true"
         android:orientation="vertical">
 
         <!-- Header -->
         <RelativeLayout
-            android:id="@+id/rlCartHeader"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#FFFFFF"
-            android:padding="16dp">
+            style="@style/ToolbarStyle"
+            android:gravity="center_vertical">
 
             <ImageView
                 android:id="@+id/ivBackCart"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
                 android:src="@android:drawable/ic_menu_revert"
-                app:tint="#FF9800" />
+                app:tint="@color/text_primary" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:text="My Cart"
-                android:textColor="#333333"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:layout_centerInParent="true"
+                style="@style/ToolbarTitle"
+                android:text="My Cart" />
         </RelativeLayout>
 
-        <!-- Empty Cart View -->
+        <!-- Empty Cart -->
         <LinearLayout
             android:id="@+id/llEmptyCart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="120dp"
             android:gravity="center"
             android:orientation="vertical"
             android:visibility="gone">
@@ -51,30 +48,41 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="🛒"
-                android:textSize="60sp" />
+                android:textSize="64sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 android:text="Your cart is empty!"
-                android:textColor="#333333"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textColor="@color/text_primary"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Add some delicious home-cooked meals"
+                android:textColor="@color/text_tertiary"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/btnShopNow"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/btn_rounded"
-                android:paddingHorizontal="32dp"
-                android:text="Shop Now"
+                android:layout_height="48dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_button_primary"
+                android:paddingHorizontal="40dp"
+                android:text="Browse Cooks"
                 android:textAllCaps="false"
-                android:textColor="#FFFFFF" />
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
-        <!-- Cart Items and Summary -->
+        <!-- Cart Content -->
         <androidx.core.widget.NestedScrollView
             android:id="@+id/nsvCartContent"
             android:layout_width="match_parent"
@@ -92,70 +100,73 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp" />
 
-                <!-- Bill Summary -->
+                <!-- Bill Summary Card -->
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    app:cardCornerRadius="12dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="16dp"
+                    app:cardCornerRadius="16dp"
                     app:cardElevation="2dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="16dp">
+                        android:padding="20dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="12dp"
+                            android:layout_marginBottom="16dp"
                             android:text="Bill Summary"
-                            android:textColor="#333333"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
+                            style="@style/TextSubtitle" />
 
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="8dp">
+                            android:layout_marginBottom="10dp">
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Item Total"
-                                android:textColor="#666666" />
+                                android:textColor="@color/text_secondary"
+                                android:textSize="14sp" />
                             <TextView
                                 android:id="@+id/tvCartSubtotal"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentEnd="true"
                                 android:text="₹0"
-                                android:textColor="#333333" />
+                                android:textColor="@color/text_primary"
+                                android:textSize="14sp" />
                         </RelativeLayout>
 
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="8dp">
+                            android:layout_marginBottom="10dp">
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Delivery Fee"
-                                android:textColor="#666666" />
+                                android:textColor="@color/text_secondary"
+                                android:textSize="14sp" />
                             <TextView
                                 android:id="@+id/tvCartDeliveryFee"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentEnd="true"
                                 android:text="₹40"
-                                android:textColor="#333333" />
+                                android:textColor="@color/text_primary"
+                                android:textSize="14sp" />
                         </RelativeLayout>
 
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:layout_marginVertical="8dp"
-                            android:background="#EEEEEE" />
+                            android:layout_marginVertical="10dp"
+                            android:background="@color/divider" />
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -164,7 +175,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="To Pay"
-                                android:textColor="#333333"
+                                android:textColor="@color/text_primary"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
                             <TextView
@@ -173,7 +184,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentEnd="true"
                                 android:text="₹0"
-                                android:textColor="#FF9800"
+                                android:textColor="@color/primary"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
                         </RelativeLayout>
@@ -184,14 +195,16 @@
                 <Button
                     android:id="@+id/btnCartCheckout"
                     android:layout_width="match_parent"
-                    android:layout_height="56dp"
+                    android:layout_height="54dp"
                     android:layout_marginHorizontal="16dp"
-                    android:background="@drawable/btn_rounded"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_button_primary"
                     android:text="Proceed to Checkout"
                     android:textAllCaps="false"
-                    android:textColor="#FFFFFF"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium" />
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
     </LinearLayout>
@@ -199,11 +212,13 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="64dp"
         android:layout_alignParentBottom="true"
-        android:background="#FFFFFF"
-        android:elevation="8dp"
+        android:background="@drawable/bg_bottom_nav"
+        android:elevation="12dp"
         app:menu="@menu/bottom_nav_menu"
-        app:labelVisibilityMode="labeled" />
+        app:labelVisibilityMode="labeled"
+        app:itemIconTint="@color/text_tertiary"
+        app:itemTextColor="@color/text_tertiary" />
 
 </RelativeLayout>

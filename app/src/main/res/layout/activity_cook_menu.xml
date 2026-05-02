@@ -4,15 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FAFAFA">
+    android:background="@color/background">
 
     <!-- Header -->
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="#FFFFFF"
-        android:elevation="4dp"
-        android:paddingHorizontal="16dp">
+        style="@style/ToolbarStyle"
+        android:gravity="center_vertical">
 
         <ImageView
             android:id="@+id/ivBackMenu"
@@ -20,7 +17,7 @@
             android:layout_height="24dp"
             android:layout_centerVertical="true"
             android:src="@android:drawable/ic_menu_revert"
-            app:tint="#333333" />
+            app:tint="@color/text_primary" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -33,9 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Today's Menu"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="#333333" />
+                style="@style/ToolbarTitle" />
 
             <TextView
                 android:id="@+id/tvCookNameMenu"
@@ -43,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:text="by Priya Sharma"
                 android:textSize="12sp"
-                android:textColor="#777777" />
+                android:textColor="@color/text_tertiary" />
         </LinearLayout>
     </RelativeLayout>
 
@@ -51,9 +46,10 @@
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:layout_marginBottom="8dp"
-        android:paddingHorizontal="16dp"
+        android:paddingStart="20dp"
+        android:clipToPadding="false"
         android:scrollbars="none">
 
         <LinearLayout
@@ -65,40 +61,38 @@
                 android:id="@+id/filterMenuAll"
                 style="@style/CategoryChip"
                 android:text="All" />
-
             <Button
                 android:id="@+id/filterMenuBreakfast"
                 style="@style/CategoryChip"
                 android:text="Breakfast" />
-
             <Button
                 android:id="@+id/filterMenuLunch"
                 style="@style/CategoryChip"
                 android:text="Lunch" />
-
             <Button
                 android:id="@+id/filterMenuDinner"
                 style="@style/CategoryChip"
                 android:text="Dinner" />
-
         </LinearLayout>
     </HorizontalScrollView>
 
-    <!-- Recycler View -->
+    <!-- Menu List -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCookMenu"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:paddingBottom="16dp"
-        android:clipToPadding="false"/>
+        android:clipToPadding="false" />
 
-    <!-- Bottom Cart Summary Placeholder -->
+    <!-- Bottom Cart Summary -->
     <RelativeLayout
         android:id="@+id/layoutCartSummary"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="#FF9800"
+        android:layout_height="64dp"
+        android:background="@drawable/bg_button_primary"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="12dp"
         android:paddingHorizontal="20dp"
         android:visibility="gone">
 
@@ -108,17 +102,19 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:text="2 Items in Cart"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold" />
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:text="View Cart ➔"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold" />
+            android:text="View Cart →"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="14sp" />
     </RelativeLayout>
 
 </LinearLayout>

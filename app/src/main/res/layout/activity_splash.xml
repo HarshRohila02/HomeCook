@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/surface">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -12,25 +12,28 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:src="@mipmap/ic_launcher" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="20dp"
             android:text="HomeCook"
             android:textColor="@color/primary"
-            android:textSize="32sp"
-            android:textStyle="bold" />
+            android:textSize="34sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:text="Taste of Home, Delivered"
-            android:textColor="@color/grey"
-            android:textSize="16sp" />
+            android:textColor="@color/text_tertiary"
+            android:textSize="15sp"
+            android:letterSpacing="0.05" />
     </LinearLayout>
 
 </RelativeLayout>

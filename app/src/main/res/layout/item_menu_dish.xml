@@ -4,38 +4,33 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="16dp"
-    android:layout_marginVertical="8dp"
+    android:layout_marginVertical="6dp"
     app:cardCornerRadius="16dp"
-    app:cardElevation="4dp">
+    app:cardElevation="2dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="12dp">
+        android:padding="14dp">
 
-        <ImageView
-            android:id="@+id/ivMenuDish"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher_background" />
-
+        <!-- Text content on the left -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:layout_marginStart="16dp">
+            android:layout_marginEnd="14dp">
 
             <TextView
                 android:id="@+id/tvMenuDishName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Dish Name"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="#333333"/>
+                android:textColor="@color/text_primary"
+                android:fontFamily="sans-serif-medium" />
 
             <TextView
                 android:id="@+id/tvMenuDishCategory"
@@ -43,8 +38,8 @@
                 android:layout_height="wrap_content"
                 android:text="North Indian • Lunch"
                 android:textSize="12sp"
-                android:textColor="#777777"
-                android:layout_marginTop="2dp"/>
+                android:textColor="@color/text_tertiary"
+                android:layout_marginTop="3dp" />
 
             <TextView
                 android:id="@+id/tvMenuDishDesc"
@@ -52,16 +47,17 @@
                 android:layout_height="wrap_content"
                 android:text="Delicious home cooked meal..."
                 android:textSize="12sp"
-                android:textColor="#999999"
+                android:textColor="@color/text_secondary"
                 android:maxLines="2"
                 android:ellipsize="end"
-                android:layout_marginTop="4dp"/>
+                android:layout_marginTop="6dp"
+                android:lineSpacingExtra="2dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="10dp"
                 android:gravity="center_vertical">
 
                 <TextView
@@ -72,20 +68,38 @@
                     android:text="₹150"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="#FF9800"/>
+                    android:textColor="@color/primary" />
 
                 <Button
                     android:id="@+id/btnAddDish"
                     android:layout_width="wrap_content"
-                    android:layout_height="36dp"
-                    android:text="Add"
-                    android:background="@drawable/btn_rounded"
-                    android:textColor="#FFFFFF"
-                    android:textAllCaps="false"
+                    android:layout_height="34dp"
+                    android:text="ADD"
+                    android:background="@drawable/bg_button_outline"
+                    android:textColor="@color/primary"
+                    android:textAllCaps="true"
                     android:textSize="12sp"
-                    android:paddingHorizontal="16dp"/>
+                    android:textStyle="bold"
+                    android:paddingHorizontal="20dp"
+                    android:fontFamily="sans-serif-medium" />
             </LinearLayout>
 
         </LinearLayout>
+
+        <!-- Image on the right -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp">
+
+            <ImageView
+                android:id="@+id/ivMenuDish"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_background" />
+        </androidx.cardview.widget.CardView>
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>

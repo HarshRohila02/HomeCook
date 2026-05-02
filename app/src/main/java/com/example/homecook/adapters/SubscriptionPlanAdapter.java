@@ -41,20 +41,12 @@ public class SubscriptionPlanAdapter extends RecyclerView.Adapter<SubscriptionPl
         holder.tvPlanDescription.setText(plan.getDescription());
 
         holder.btnSelectPlan.setOnClickListener(v -> {
-            // SubscriptionCheckoutActivity will be implemented in next phase or should exist
-            try {
-                Intent intent = new Intent(context, Class.forName("com.example.homecook.activities.SubscriptionCheckoutActivity"));
-                intent.putExtra("planName", plan.getName());
-                intent.putExtra("price", plan.getPrice());
-                intent.putExtra("durationDays", plan.getDurationDays());
-                intent.putExtra("cookId", cookId);
-                context.startActivity(intent);
-            } catch (ClassNotFoundException e) {
-                // If the class doesn't exist yet, we can't start it.
-                // For now, let's assume it will be created.
-                // In a real scenario, we might use a direct class reference if it's already there.
-                android.widget.Toast.makeText(context, "Checkout Activity not found. Proceeding to create it.", android.widget.Toast.LENGTH_SHORT).show();
-            }
+            Intent intent = new Intent(context, com.example.homecook.activities.SubscriptionCheckoutActivity.class);
+            intent.putExtra("planName", plan.getName());
+            intent.putExtra("price", plan.getPrice());
+            intent.putExtra("durationDays", plan.getDurationDays());
+            intent.putExtra("cookId", cookId);
+            context.startActivity(intent);
         });
     }
 

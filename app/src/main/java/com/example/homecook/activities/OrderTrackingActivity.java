@@ -46,15 +46,9 @@ public class OrderTrackingActivity extends AppCompatActivity {
         }
 
         btnBack.setOnClickListener(v -> {
-            // OrdersActivity will be implemented in Phase 5E
-            try {
-                Intent intent = new Intent(this, Class.forName("com.example.homecook.activities.OrdersActivity"));
-                startActivity(intent);
-                finish();
-            } catch (ClassNotFoundException e) {
-                Toast.makeText(this, "Orders history coming soon!", Toast.LENGTH_SHORT).show();
-                finish();
-            }
+            Intent intent = new Intent(this, OrdersActivity.class);
+            startActivity(intent);
+            finish();
         });
     }
 
@@ -63,9 +57,10 @@ public class OrderTrackingActivity extends AppCompatActivity {
             if (documentSnapshot.exists()) {
                 String status = documentSnapshot.getString("status");
                 String estimate = documentSnapshot.getString("estimatedDelivery");
-                double total = documentSnapshot.getDouble("totalAmount");
+                Double totalObj = documentSnapshot.getDouble("totalAmount");
+                double total = totalObj != null ? totalObj : 0;
 
-                tvEstimate.setText("Estimated Delivery: " + estimate);
+                tvEstimate.setText("Estimated Delivery: " + (estimate != null ? estimate : "N/A"));
                 tvTotal.setText("Total Amount: ₹" + (int) total);
 
                 updateTimeline(status);

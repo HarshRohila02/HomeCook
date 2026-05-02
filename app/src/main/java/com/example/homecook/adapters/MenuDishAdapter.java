@@ -2,6 +2,7 @@ package com.example.homecook.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,9 +53,13 @@ public class MenuDishAdapter extends RecyclerView.Adapter<MenuDishAdapter.MenuVi
         holder.tvDesc.setText(dish.getDescription());
         holder.tvPrice.setText("₹" + (int) dish.getPrice());
 
-        int resId = context.getResources().getIdentifier(dish.getImageName(), "drawable", context.getPackageName());
+        String imgName = dish.getImageName();
+        int resId = imgName != null ? context.getResources().getIdentifier(imgName, "drawable", context.getPackageName()) : 0;
         if (resId != 0) {
             Glide.with(context).load(resId).placeholder(R.drawable.ic_launcher_background).into(holder.ivDish);
+        } else {
+            Log.w("MenuDishAdapter", "Image NOT found for dish '" + dish.getName() + "', imageName='" + imgName + "'");
+            holder.ivDish.setImageResource(R.drawable.ic_launcher_background);
         }
 
         holder.btnAdd.setOnClickListener(v -> addToCart(dish));

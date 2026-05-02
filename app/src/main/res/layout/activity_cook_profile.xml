@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="@color/surface">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -14,10 +14,10 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Cook Header Section -->
+            <!-- Hero Image Header -->
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="250dp">
+                android:layout_height="260dp">
 
                 <ImageView
                     android:id="@+id/ivCookProfileHeader"
@@ -31,46 +31,55 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/bg_header_gradient" />
 
+                <!-- Floating Back Button -->
                 <ImageView
                     android:id="@+id/ivBackProfile"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
                     android:layout_margin="16dp"
-                    android:padding="4dp"
+                    android:padding="6dp"
+                    android:background="@drawable/bg_card"
+                    android:elevation="4dp"
                     android:src="@android:drawable/ic_menu_revert"
-                    app:tint="#FFFFFF" />
+                    app:tint="@color/text_primary" />
             </RelativeLayout>
 
+            <!-- Cook Info Card (overlapping hero) -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="-30dp"
+                android:layout_marginTop="-36dp"
                 android:background="@drawable/bg_card"
-                android:elevation="4dp"
+                android:elevation="6dp"
                 android:orientation="vertical"
-                android:padding="20dp">
+                android:paddingHorizontal="24dp"
+                android:paddingTop="28dp"
+                android:paddingBottom="24dp">
 
                 <TextView
                     android:id="@+id/tvCookNameProfile"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Priya Sharma"
-                    android:textColor="#333333"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/text_primary"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium" />
 
                 <TextView
                     android:id="@+id/tvCuisineProfile"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
                     android:text="North Indian Cuisine"
-                    android:textColor="#777777"
-                    android:textSize="16sp" />
+                    android:textColor="@color/text_secondary"
+                    android:textSize="15sp" />
 
+                <!-- Rating Row -->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="12dp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
@@ -78,112 +87,134 @@
                         android:id="@+id/tvRatingProfile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/bg_rating_badge"
                         android:text="★ 4.9"
-                        android:textColor="#FF9800"
-                        android:textSize="14sp"
+                        android:textColor="@color/white"
+                        android:textSize="13sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tvReviewsProfile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
+                        android:layout_marginStart="10dp"
                         android:text="(120 reviews)"
-                        android:textColor="#999999"
+                        android:textColor="@color/text_tertiary"
                         android:textSize="13sp" />
 
                     <TextView
                         android:id="@+id/tvDistanceProfile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
+                        android:layout_marginStart="14dp"
                         android:text="📍 1.2 km"
-                        android:textColor="#555555"
+                        android:textColor="@color/text_secondary"
                         android:textSize="13sp" />
                 </LinearLayout>
 
+                <!-- Hygiene Badge -->
                 <TextView
                     android:id="@+id/tvHygieneBadge"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="14dp"
                     android:background="@drawable/bg_chip_unselected"
-                    android:paddingHorizontal="12dp"
-                    android:paddingVertical="4dp"
-                    android:text="✨ Hygiene Verified"
-                    android:textColor="#4CAF50"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="6dp"
+                    android:text="✅ Hygiene Verified"
+                    android:textColor="@color/success"
                     android:textSize="12sp"
                     android:textStyle="bold" />
 
+                <!-- Divider -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/divider" />
+
+                <!-- About -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:text="About"
-                    android:textColor="#333333"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    style="@style/TextSubtitle" />
 
                 <TextView
                     android:id="@+id/tvAboutCook"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:lineSpacingExtra="4dp"
-                    android:text="Experienced home cook specializing in authentic North Indian flavors. All meals are prepared with fresh ingredients and lots of love."
-                    android:textColor="#666666"
-                    android:textSize="14sp" />
+                    android:layout_marginTop="6dp"
+                    style="@style/TextBody"
+                    android:text="Experienced home cook specializing in authentic North Indian flavors." />
 
+                <!-- Divider -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/divider" />
+
+                <!-- Today's Menu -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="20dp"
                     android:text="Today's Menu"
-                    android:textColor="#333333"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    style="@style/TextSubtitle" />
 
+                <!-- Meal Type Filters -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="14dp"
                     android:orientation="horizontal">
 
                     <Button
+                        android:id="@+id/filterBreakfastProfile"
                         android:layout_width="0dp"
-                        android:layout_height="36dp"
-                        android:layout_marginEnd="4dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="8dp"
                         android:layout_weight="1"
                         android:background="@drawable/bg_chip_selected"
                         android:padding="0dp"
                         android:text="Breakfast"
                         android:textAllCaps="false"
-                        android:textSize="12sp" />
+                        android:textColor="@color/primary"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium" />
 
                     <Button
+                        android:id="@+id/filterLunchProfile"
                         android:layout_width="0dp"
-                        android:layout_height="36dp"
-                        android:layout_marginEnd="4dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="8dp"
                         android:layout_weight="1"
                         android:background="@drawable/bg_chip_unselected"
                         android:padding="0dp"
                         android:text="Lunch"
                         android:textAllCaps="false"
-                        android:textColor="#333333"
-                        android:textSize="12sp" />
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp"
+                        android:fontFamily="sans-serif-medium" />
 
                     <Button
+                        android:id="@+id/filterDinnerProfile"
                         android:layout_width="0dp"
-                        android:layout_height="36dp"
+                        android:layout_height="40dp"
                         android:layout_weight="1"
                         android:background="@drawable/bg_chip_unselected"
                         android:padding="0dp"
                         android:text="Dinner"
                         android:textAllCaps="false"
-                        android:textColor="#333333"
-                        android:textSize="12sp" />
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp"
+                        android:fontFamily="sans-serif-medium" />
                 </LinearLayout>
 
+                <!-- Sample Dishes -->
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvCookSampleDishes"
                     android:layout_width="match_parent"
@@ -191,28 +222,34 @@
                     android:layout_marginTop="16dp"
                     android:orientation="horizontal" />
 
+                <!-- View Full Menu -->
                 <Button
                     android:id="@+id/btnViewFullMenu"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="20dp"
                     android:background="@drawable/bg_button_outline"
                     android:text="View Full Menu"
                     android:textAllCaps="false"
-                    android:textColor="#FF9800"
-                    android:textStyle="bold" />
+                    android:textColor="@color/primary"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:fontFamily="sans-serif-medium" />
 
+                <!-- Get Subscription -->
                 <Button
                     android:id="@+id/btnGetSubscription"
                     android:layout_width="match_parent"
-                    android:layout_height="56dp"
+                    android:layout_height="54dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="20dp"
-                    android:background="@drawable/btn_rounded"
+                    android:background="@drawable/bg_button_secondary"
                     android:text="Get Subscription"
                     android:textAllCaps="false"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold" />
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:fontFamily="sans-serif-medium" />
 
             </LinearLayout>
         </LinearLayout>

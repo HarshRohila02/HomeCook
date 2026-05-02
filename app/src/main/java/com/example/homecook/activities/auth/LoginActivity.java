@@ -61,7 +61,8 @@ public class LoginActivity extends AppCompatActivity {
                         finish();
                     } else {
                         btnLogin.setEnabled(true);
-                        Toast.makeText(LoginActivity.this, "Authentication Failed: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                        String error = task.getException() != null ? task.getException().getMessage() : "Unknown error";
+                        Toast.makeText(LoginActivity.this, "Authentication Failed: " + error, Toast.LENGTH_LONG).show();
                     }
                 });
     }
